@@ -1,20 +1,42 @@
 
 
 .wrapper {
-  background: #c9e5f2;  
+  background: #58aed6b9;
+  width: 100%;
+  margin: 0px auto;
 }
 
 .text_block {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  margin: 10;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0px auto;
   font-family: 'Times New Roman', Times, serif;
   font-size: 14px;
-  display: flex;
-  flex-wrap: wrap;
 
 }
+@media (max-width: 1400px) {
+  .text_block {
+    width: 1400px;
+    background-color: rgb(161, 191, 245);
+  }
+  .newText {width: 400px;}
+}
+
+@media (max-width: 1200px) {
+  .font-size {font-size: 20px;}
+  .color-text {font-size: 20px;}
+  .textalign {font-size: 20px;}
+  .bgfone {font-size: 20px;}
+  .font {font-size: 20px;}
+  .reset {font-size: 20px;}
+  .btn-add {font-size: 20px;}
+  .text_block {width: 1200px;}
+  .newText {width: 600px;}
+}
+
 
 .textreader {
   text-align: center;
@@ -23,7 +45,6 @@
 }
 
 .reader_body {
-  width: 1600px;
 }
 
 select {
@@ -56,8 +77,6 @@ button {
   font-size: 14px;
   width: 1200px;
   min-height: 700px;
-  margin-left: 10vw;
-  border: solid;
   border-width: 0px;
   padding: 15px;
   background-color: white;
@@ -68,8 +87,9 @@ button {
 }
 
 .newText {
-  width: 20vw;
-  word-spacing: 6px;
+  width: 400px;
+  margin: auto;
+  word-spacing: 8px;
   min-height: 10vw;
   margin: 10px;
   border: solid;
