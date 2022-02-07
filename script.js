@@ -1,14 +1,19 @@
 'use strict'
 
 let wrap = document.querySelector('.wrapper'),
-    edit = document.querySelector('.editorPlace'),
-    textBlock = document.querySelector('.text_block');
+    edit = document.querySelector('.newText'),
+    textBlock = document.querySelector('.text_block'),
+    font = document.querySelector('.font'),
+    fontSize = document.querySelector('.font-size'),
+    colorText = document.querySelector('.color-text'),
+    textalign = document.querySelector('.textalign'),
+    bgfone = document.querySelector('.bgfone'),
+    btnAdd = document.querySelector('.btn-add'),
+    btnDel = document.querySelector('.btn-delete');
 
-
-let font = document.querySelector('.font');
 function setFont() {
-  let getFont = font.value;
-  switch (getFont) {
+    let getFont = font.value;
+    switch (getFont) {
     case edit.style.fontFamily = 'Arial':
     break;
     case edit.style.fontFamily = 'Arial Black':
@@ -27,17 +32,16 @@ function setFont() {
     break;
     case edit.style.fontFamily = "'Cormorant', serif":
     break;
-  }
+    }  
 }
 
 font.addEventListener('change', () => {
   setFont();
 });
 
-let title = document.querySelector('.title');
-function setTitle() {
-  let getTitle = title.value;
-  switch (getTitle) {
+function setFontSize() {
+  let getFontSize = fontSize.value;
+  switch (getFontSize) {
     case edit.style.fontSize= '14px':
     break;
     case edit.style.fontSize= '16px':
@@ -59,14 +63,14 @@ function setTitle() {
   }
 }
 
-title.addEventListener('change', () => {
-  setTitle();
+fontSize.addEventListener('change', () => {
+  setFontSize();
 });
 
-let size = document.querySelector('.size');
-function setSize() {
-  let getSize = size.value;
-  switch (getSize) {
+
+function setColorText() {
+  let getColorText = colorText.value;
+  switch (getColorText) {
     case edit.style.color = 'black':
     break;
     case edit.style.color = 'red':
@@ -78,11 +82,11 @@ function setSize() {
   }
 }
 
-size.addEventListener('change', () => {
-  setSize();
+colorText.addEventListener('change', () => {
+  setColorText();
 });
 
-let textalign = document.querySelector('.textalign');
+
 function setAlign() {
   let getAlign = textalign.value;
   switch (getAlign) {
@@ -101,7 +105,7 @@ textalign.addEventListener('change', () => {
   setAlign();
 });
 
-let bgfone = document.querySelector('.bgfone');
+
 function setBgFone() {
   let getBgFone = bgfone.value;
   switch (getBgFone) {
@@ -124,31 +128,21 @@ function setBgFone() {
   }
 }
 
-bgfone.addEventListener('change', () => {
+bgfone.addEventListener('click', () => {
   setBgFone();
 });
-
-
-if (localStorage.getItem('text_in_editor') !== null) {
-  document.querySelector('#editor').innerHTML = localStorage.getItem('text_in_editor');
-}
-document.addEventListener('keydown', function (e) {
-  localStorage.setItem('text_in_editor', document.getElementById('editor').innerHTML);
-});
-
-let btnAdd = document.querySelector('.btn-add'),
-    btnDel = document.querySelector('.btn-delete');
 
 function createDocument() {
   let div = document.createElement('div');
   div.classList.add('newText');
-  let txt = document.querySelector('#editor').value;
+  let txt = document.querySelector('.newText').value;
   let txtPlace = document.createTextNode(txt);
   div.append(txtPlace);
   textBlock.append(div);
   div.addEventListener('click', () => {
     div.remove();
   })
+  
 }
 
 let reset = document.querySelector('.reset');
