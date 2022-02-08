@@ -9,7 +9,8 @@ let wrap = document.querySelector('.wrapper'),
     textalign = document.querySelector('.textalign'),
     bgfone = document.querySelector('.bgfone'),
     btnAdd = document.querySelector('.btn-add'),
-    btnDel = document.querySelector('.btn-delete');
+    btnDel = document.querySelector('.btn-delete'),
+    readerBody = document.querySelector('.reader_body');
 
 function setFont() {
     let getFont = font.value;
@@ -128,6 +129,8 @@ function setBgFone() {
   }
 }
 
+
+
 bgfone.addEventListener('click', () => {
   setBgFone();
 });
@@ -142,8 +145,19 @@ function createDocument() {
   div.addEventListener('click', () => {
     div.remove();
   })
-  
+  let getColorFone = bgfone.value,
+      txtAlign = textalign.value,
+      colorTxt = colorText.value,
+      wordSize = fontSize.value,
+      fontFam = font.value;
+  div.style.fontFamily = fontFam;
+  div.style.fontSize = wordSize;
+  div.style.color = colorTxt;
+  div.style.textAlign = txtAlign;
+  div.style.backgroundColor = getColorFone;
 }
+
+
 
 let reset = document.querySelector('.reset');
 
